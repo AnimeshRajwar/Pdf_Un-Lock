@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock PDF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Un/lock Your PDF</h1>
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <label for="mode">Select a mode:</label>
+        <div id="mode-box1">
+            <input type="radio" id="option1" name="option" value="Decrypt" checked>
+            <label>Decrypt</label>
+            <br>
+        </div>
+        <div id="mode-box2">
+            <input type="radio" id="option2" name="option" value="Encrypt">
+            <label>Encrypt</label>
+            <br>
+        </div>
+
+            <label for="pdf_file">Choose a PDF file:</label>
+            <input type="file" name="pdf_file" id="pdf_file" accept=".pdf" required>
+
+            <label for="password">Enter PDF Password:</label> 
+            <input type="password" name="password" id="password" required>
+
+            <button type="submit">Un/lock PDF</button>
+        </form>
+    </div>
+</body>
+</html>
